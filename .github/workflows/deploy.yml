@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Build Angular app
-        run: ng build --base-href /${{ github.event.repository.name }}/ --configuration production # ודאי שה-outputPath כאן הוא כמו ב-angular.json שלך, למשל: dist/<your-project-name>
+        run: npm ng build --base-href /${{ github.event.repository.name }}/ --configuration production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4 # Action פופולרי לפריסה ל-GitHub Pages
