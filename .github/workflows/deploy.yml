@@ -1,0 +1,32 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: ng build --base-href /${{ github.event.repository.name }}/ --configuration production # ודאי שה-outputPath כאן הוא כמו ב-angular.json שלך, למשל: dist/<your-project-name>
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4 # Action פופולרי לפריסה ל-GitHub Pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/browser
+          # אם ה-outputPath שלך ב-angular.json הוא "docs", אז זה יהיה "./docs/browser"
