@@ -1,4 +1,4 @@
-## Chatbot App (Powered by OpenAI)
+# Chatbot App 🤖 (Powered by OpenAI)
 Welcome to the Chatbot App! This is an interactive chatbot project developed with Angular, enabling conversations with a powerful language model via the OpenAI API.
 
 # About the Project
