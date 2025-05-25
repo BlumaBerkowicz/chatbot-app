@@ -30,8 +30,7 @@ jobs:
         run: npx ng build --base-href=/chatbot-app/ --configuration=production
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4 # Action פופולרי לפריסה ל-GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/browser
-          # אם ה-outputPath שלך ב-angular.json הוא "docs", אז זה יהיה "./docs/browser"
+          publish_dir: ./docs
