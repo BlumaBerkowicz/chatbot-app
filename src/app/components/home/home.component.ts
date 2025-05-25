@@ -47,6 +47,7 @@ export class HomeComponent implements AfterViewInit {
   
   newMessage: string = '';
   isLoading: boolean = false;
+  hasError: boolean = false;
 
   constructor(private chatService: ChatService) {}
 
@@ -65,12 +66,12 @@ export class HomeComponent implements AfterViewInit {
       const userMessage = this.newMessage;
       this.newMessage = '';
       this.isLoading = true;
+      this.hasError = false;
 
       this.scrollToBottom();
 
       this.chatService.sendMessage(userMessage).subscribe({
         next: (response) => {
-          console.log('Received response:', response); // Debug log
           this.messages.push({
             content: response,
             isUser: false,
@@ -80,8 +81,9 @@ export class HomeComponent implements AfterViewInit {
         },
         error: (error) => {
           console.error('Error sending message:', error);
+          this.hasError = true;
           this.messages.push({
-            content: 'Sorry, there was an error processing your message. Please try again.',
+            content: 'Sorry, there was an error processing your message. Please try refreshing the page.',
             isUser: false,
             timestamp: new Date(),
             isError: true
@@ -93,6 +95,10 @@ export class HomeComponent implements AfterViewInit {
         }
       });
     }
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
   private scrollToBottom(): void {
