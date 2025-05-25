@@ -2,7 +2,7 @@
 Welcome to the Chatbot App! This is an interactive chatbot project developed with Angular, enabling conversations with a powerful language model via the OpenAI API.
 
 # About the Project
-This application serves as a simple yet powerful chatbot demonstration. The primary goals of this project are to showcase:
+This application serves as a simple yet powerful chatbot demonstration. The primary goals of this project are to showcase: 
 
 Integration of an Angular application with backend services (using HttpClient).
 Utilization of the OpenAI API to generate human-like responses.
