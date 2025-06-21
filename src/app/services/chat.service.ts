@@ -6,8 +6,8 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'https://chatbot-appserver.onrender.com/chat';
-
+  private apiUrl = 'https://chatbot-app-server-291370868073.europe-west1.run.app/chat';
+//https://chatbot-appserver.onrender.com/chat
   constructor(private http: HttpClient) { }
 
 
